@@ -7,6 +7,7 @@ from django.db.models import Q
 from SistemaGerencial.forms import CustomUserCreationForm
 from SistemaGerencial.models import *
 from SistemaGerencial.forms import *
+from SistemaGerencial.models import User
 
 
 @login_required
@@ -19,7 +20,7 @@ def registro(request):
     }
 
     if request.method == 'POST':
-        formulario=CustomUserCreationForm(data=request.POST)
+        formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
@@ -67,3 +68,14 @@ def pacientes_consultorio(request):
                 
                     context ={'clinicas':clinicas, 'consultorios':consultorios, 'pacientes':pacientes, 'exp':expedientes,'esp':especies, 'espSel':espSeleccionada, 'cliID': int(cli), 'espID': int(espec)}
     return render(request, 'Salidas_Tacticas/pacientes_consultorio.html', context)
+
+def listarUsuario(request):
+    usuarios = User.objects.all()
+    data = {
+        'usuarios': usuarios,
+    }
+
+    if request.user is not None and request.user.rol != 'administrador':
+        return render(request, 'usuario/401.html')
+    else:
+        return render(request, 'usuario/listarUsuario.html', data)

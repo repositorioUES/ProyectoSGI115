@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>Inicio</title>{% endblock title%}
+
+{% block content %}
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Listado de Usuarios</h1>
+    </div>
+
+<!-- Seccion Tablas-->
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>Listado de Usuarios
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Ultima sesion</th>
+                            <th>Rol</th>
+                            <th>Gestionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuario in usuarios %}
+                        <tr>
+                            <td>{{ usuario.id }}</td>
+                            <td>{{ usuario.username }}</td>
+                            <td>{{ usuario.first_name }}</td>
+                            <td>{{ usuario.last_name }}</td>
+                            <td>{{ usuario.email }}</td>
+                            <td>{{ usuario.last_login }}</td>
+                            <td>{{ usuario.rol }}</td>
+                            <td> <a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(238, 204, 9);text-shadow:2px 2px 4px #000000;"></i></a>&nbsp;&nbsp;
+                                <a href="#" ><i class="fa fa-minus-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(212, 10, 10);text-shadow:2px 2px 4px #000000;"></i></a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Fin Seccion tablas-->
+
+{% endblock content%}
