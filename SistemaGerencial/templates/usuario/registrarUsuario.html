@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}<title>Registrar Usuario</title>{% endblock title%}
+
+{% block content %}
+<div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Registro</h3></div>
+                                    <div class="card-body">
+                                        <form method="post"  role="form" action="">
+                                            {% csrf_token %}
+                                            <div class="form-floating mb-3">
+                                                {{ form.username|as_crispy_field }}
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        {{ form.first_name|as_crispy_field }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        {{ form.last_name|as_crispy_field }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                {{ form.email|as_crispy_field }}
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                {{ form.password1|as_crispy_field }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                {{ form.password2|as_crispy_field }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                {{ form.rol|as_crispy_field }}
+                                            </div>
+                                            {% if form.non_field_errors %}
+                                                {% for error in form.non_field_errors %}
+                                                    <p class="text-danger">{{ error }}
+
+                                                {% endfor %}
+                                            {% endif %}
+                                            <div class="mt-4 mb-0">
+                                                <div class="d-grid"><input type="submit" value="Registrarse" class="btn btn-primary btn-block"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{% endblock content %}
+
