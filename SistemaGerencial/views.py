@@ -3,8 +3,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from django.db.models import Q
-# Create your views here.
-from SistemaGerencial.forms import CustomUserCreationForm
 from SistemaGerencial.models import *
 from SistemaGerencial.forms import *
 from SistemaGerencial.forms import CustomUserCreationForm, CustomUserEditForm
