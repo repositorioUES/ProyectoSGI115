@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 from SistemaGerencial.forms import CustomUserCreationForm
+from SistemaGerencial.models import User
 
 
 @login_required
@@ -25,3 +26,16 @@ def registro(request):
             return redirect(to="index")
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
+
+def listarUsuario(request):
+    usuarios = User.objects.all()
+    data = {
+        'usuarios': usuarios,
+    }
+
+    if request.user is not None and request.user.rol != 'administrador':
+        return render(request, 'usuario/401.html')
+    else:
+        return render(request, 'usuario/listarUsuario.html', data)
+
+
