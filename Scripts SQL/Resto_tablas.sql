@@ -1,0 +1,48 @@
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Pets Cojutepeque", 1);
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Pets Aguilares", 1);
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("AP Ilosbasco", 2);
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("AP San Salvador", 2);
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Huellitas San Miguel", 3);
+INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Huellitas Apopa", 3);
+
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2022-03-02", 1, 1, 3);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2021-07-22", 3, 6, 23);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-12-12", 2, 4, 15);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-05-30", 3, 5, 1);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2021-05-29", 1, 2, 8);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-07-01", 3, 5, 16);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2022-06-02", 2, 3, 20);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-05-20", 3, 6, 13);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2019-10-08", 1, 1, 3);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2019-07-02", 2, 4, 11);
+
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2022-05-02", "Rabiton", 1);
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2021-02-20", "VitaCan", 3);
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2022-05-02", "Polivalente", 15);
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2022-05-02", "Rabiton", 11);
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2021-02-20", "VitaCan", 8);
+INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2022-05-02", "Polivalente", 11);
+
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,5,1);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,2);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,2,3);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,2,4);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,5);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,5,6);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,7);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,2,8);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,9);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,10);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,4,11);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,3,12);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,6,13);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,3,14);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,4,15);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,5,16);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,6,17);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,18);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,3,19);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,3,20);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (1,1,21);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (2,4,22);
+INSERT INTO SistemaGerencial_expediente (clinica_id, consultorio_id, paciente_id) VALUES (3,6,23);
