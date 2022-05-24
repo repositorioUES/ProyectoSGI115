@@ -59,3 +59,15 @@ class Vacuna(models.Model):
     def __str__(self):
         return self.nombreVac
 #FIN VACUNA
+
+# Modelo de EXPEDIENTE -------------------------------------------------------------------
+class Expediente (models.Model):
+    id = models.AutoField(primary_key = True)
+    paciente = models.ForeignKey('Paciente', on_delete = models.PROTECT, null=True)
+    clinica = models.ForeignKey('Clinica', on_delete = models.PROTECT)
+    consultorio = models.ForeignKey('Consultorio', on_delete = models.PROTECT)
+    
+    def __str__(self):
+        i = str(id)
+        return i
+#FIN CONSULTA
