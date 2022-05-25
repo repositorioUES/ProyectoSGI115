@@ -1,0 +1,79 @@
+{% extends 'base.html' %}  
+{% load static %} 
+
+{% block title %}<title>Pacientes por Consultorio</title>{% endblock title%}
+
+{% block content %}
+<br>
+<h4>Vacunas por Clínica y Consultorio</h4>
+<br>
+<div>
+    <form role="form" method="get" >
+        <div>    
+            <table>
+                <tr>
+                    <td width="200">
+                        <select name="buscarClinica" class="form-contol">
+                            <option value = "0" >---Seleccione Clínica---</option>
+                            {% for c in clinicas %}
+                                {% if c.pk == cliID %}
+                                    <option selected value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% else %}
+                                    <option value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td width="100">
+                        <select name="buscarCantidad" class="form-contol">
+                            {% if cantID == 0 %}
+                                <option selected value = "0" >Todas</option>
+                                <option value = "1" >Más aplicadas</option>
+                            {% else %}
+                                <option value = "0" >Todas</option>
+                                <option selected value = "1" >Más aplicadas</option>
+                            {% endif %}
+                        </select>
+                    </td>
+                    <!--<td width="200" align="right">
+                        <input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha" value="{{ request.GET.buscarFecha }}">
+                    </td>-->
+                    <td width="100" align="right">
+                        <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<br>
+{% if cantID == 0 %}
+    {% if  consultorios %}
+        {% for c in consultorios %}
+            <h5>{{ c.nombreCons}}</h5>
+            <table class="table  table-bordered ">
+                <tr style="text-align: center; background-color: #393c7f; color:whitesmoke;" >
+                    <th>Nombre de Paciente</th>
+                    <th>Vacuna</th>
+                    <th>Fecha de Aplicación</th>
+                </tr>
+                {% for v in vacunas %}
+                    {% for e in exp %}
+                        {% if v.paciente_id == e.paciente_id and c.id == e.consultorio_id%}
+                            <tr>
+                                <td style="text-align: center">{{v.paciente.nombrePac}}</td>
+                                <td style="text-align: center">{{v.nombreVac}}</td>
+                                <td style="text-align: center">{{v.fechaAplic}}</td>
+                            </tr>   
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% endif %}
+{% else %}
+    
+{% endif %}
+
+{% endblock content%}  

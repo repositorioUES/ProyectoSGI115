@@ -49,9 +49,9 @@
 </div>
 
 <br>
-{% if  consultorios %}
-    {% for c in consultorios %}
-        <h5>{{ c.nombreCons}}</h5>
+{% if consultorios %}
+    {% for c in cant %}
+        <h5>{{ c.obj.nombreCons}} ({{ c.cant}} Pacientes)</h5>
         <table class="table  table-bordered ">
             <tr style="text-align: center; background-color: #393c7f; color:whitesmoke;" >
                 <th>Nombre de Paciente</th>
@@ -60,7 +60,7 @@
             </tr>
             {% for p in pacientes %}
                 {% for e in exp %}
-                    {% if p.id == e.paciente_id and c.id == e.consultorio_id%}
+                    {% if p.id == e.paciente_id and c.obj.id == e.consultorio_id%}
                         {% if espSel %}
                             {% if p.especie == espSel.especie %}
                                 <tr>

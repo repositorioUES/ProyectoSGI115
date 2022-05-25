@@ -45,6 +45,8 @@ class Consulta (models.Model):
     fechaConsulta = models.DateField(auto_now_add = True)# fecha de creación de la consulta
     clinica = models.ForeignKey('Clinica', on_delete = models.PROTECT)
     consultorio = models.ForeignKey('Consultorio', on_delete = models.PROTECT)
+    hora = models.CharField(max_length=100,null=False)
+    medico = models.CharField(max_length=100,null=False)
 
 #FIN CONSULTA
 

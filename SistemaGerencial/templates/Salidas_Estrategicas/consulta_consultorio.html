@@ -1,0 +1,83 @@
+{% extends 'base.html' %}  
+{% load static %} 
+
+{% block title %}<title>Pacientes por Consultorio</title>{% endblock title%}
+
+{% block content %}
+<br>
+<h4>Consultas por Clínica y Consultorio</h4>
+<br>
+<div>
+    <form role="form" method="get" >
+        <div>    
+            <table>
+                <tr>
+                    <td width="200">
+                        <select name="buscarClinica" class="form-contol">
+                            <option value = "0" >---Seleccione Clínica---</option>
+                            {% for c in clinicas %}
+                                {% if c.pk == cliID %}
+                                    <option selected value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% else %}
+                                    <option value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+               
+                    <td width="250" align="right">
+                        Desde:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
+                    </td>
+                    <td width="250" align="right">
+                        Hasta:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
+                    </td>
+                    <td width="100" align="right">
+                        <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<br>
+{% if  consultorios %}
+    {% for c in cant %}
+        <h5>{{ c.obj.nombreCons}} ({{ c.cant}} Consultas)</h5>
+        <table class="table  table-bordered ">
+            <tr style="text-align: center; background-color: #393c7f; color:whitesmoke;" >
+                <th>Nombre de Paciente</th>
+                <th>Médico</th>
+                <th>Fecha de Consulta</th>
+                <th>Hora</th>
+            </tr>
+            {% for co in consultas %}
+                
+                    {% if c.obj.id == co.consultorio_id %}
+                        <tr>
+                            <td style="text-align: center">{{co.paciente.nombrePac}}</td>
+                            <td style="text-align: center">{{co.medico}}</td>
+                            <td style="text-align: center">{{co.fechaConsulta}}</td>
+                            <td style="text-align: center">{{co.hora}}</td>
+                        </tr>   
+                    {% endif %}
+               
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endif %}
+
+{% if noClinica %}
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body"><h5>{{noClinica}}</h5></div>
+            <!--<div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">View Details</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>-->
+        </div>
+    </div>
+    
+{% endif %}
+
+{% endblock content%}  

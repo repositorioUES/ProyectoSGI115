@@ -5,16 +5,16 @@ INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("AP Sa
 INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Huellitas San Miguel", 3);
 INSERT INTO SistemaGerencial_consultorio (nombreCons, clinica_id) VALUES ("Huellitas Apopa", 3);
 
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2022-03-02", 1, 1, 3);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2021-07-22", 3, 6, 23);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-12-12", 2, 4, 15);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-05-30", 3, 5, 1);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2021-05-29", 1, 2, 8);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-07-01", 3, 5, 16);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2022-06-02", 2, 3, 20);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2020-05-20", 3, 6, 13);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2019-10-08", 1, 1, 3);
-INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id) VALUES ("2019-07-02", 2, 4, 11);
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2022-03-02", 1, 1, 3, "Juan Lopez", "8 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2021-07-22", 3, 6, 23, "Ana Martinez", "4:30 pm");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2020-12-12", 2, 4, 15, "Luz de Maria", "11 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2020-05-30", 3, 5, 1, "Pedro Juarez", "2:30 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2021-05-29", 1, 2, 8, "Slvia de Molina", "8 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2020-07-01", 3, 5, 16, "Pedro Juarez", "9:45 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2022-06-02", 2, 3, 20, "Marcos Platero", "7 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2020-05-20", 3, 6, 13 "Ana Martinez", "1 pm");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2019-10-08", 1, 1, 3, "Juan Lopez", "10 am");
+INSERT INTO SistemaGerencial_consulta (fechaConsulta, clinica_id, consultorio_id, paciente_id,medico,hora) VALUES ("2019-07-02", 2, 4, 11, "Luz de Maria", "6:30 am");
 
 INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2022-05-02", "Rabiton", 1);
 INSERT INTO SistemaGerencial_vacuna (fechaAplic, nombreVac, paciente_id) VALUES ("2021-02-20", "VitaCan", 3);
