@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>Inicio</title>{% endblock title%}
+{% block title %}<title>Listado de Usuarios</title>{% endblock title%}
 
 {% block content %}
+
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Listado de Usuarios</h1>
+        <h1 class="mt-4"></h1>
     </div>
 
 <!-- Seccion Tablas-->
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>Listado de Usuarios
+            </div>&nbsp;
+
+            <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary" href="{% url 'registrarUsuario' %}" ><i class="fa fa-plus" aria-hidden="true"></i> Registrar Usuario</a>&nbsp;
             </div>
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -37,8 +43,8 @@
                             <td>{{ usuario.email }}</td>
                             <td>{{ usuario.last_login }}</td>
                             <td>{{ usuario.rol }}</td>
-                            <td> <a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(238, 204, 9);text-shadow:2px 2px 4px #000000;"></i></a>&nbsp;&nbsp;
-                                <a href="#" ><i class="fa fa-minus-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(212, 10, 10);text-shadow:2px 2px 4px #000000;"></i></a>
+                            <td> <a href="{% url 'editarUsuario' usuario.id %}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(238, 204, 9);text-shadow:2px 2px 4px #000000;"></i></a>&nbsp;&nbsp;
+                                <a href="#" onclick="eliminarUsuario({{ usuario.id }})"><i class="fa fa-minus-square fa-2x" aria-hidden="true" style="font-size:24px;color:rgb(212, 10, 10);text-shadow:2px 2px 4px #000000;"></i></a>
                             </td>
                         </tr>
                         {%endfor%}
@@ -49,3 +55,23 @@
         <!-- Fin Seccion tablas-->
 
 {% endblock content%}
+
+{% block js %}
+    <script>
+        function eliminarUsuario(id){
+            Swal.fire({
+                title: 'Estas seguro?',
+                showCancelButton: true,
+                confirmButtonText: 'Si, Eliminar',
+                confirmButtonColor: '#FF0000',
+                cancelButtonText: 'No, Cancelar',
+                reverseButtons: true,
+
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = "/usuario/eliminarUsuario/"+id+"/"
+                }
+            })
+        }
+    </script>
+{% endblock  %}
