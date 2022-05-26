@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('SistemaGerencial.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('pacientes_consultorio/',pacientes_consultorio, name="pacientes_consultorio"),
-    path('consultas_consultorio/',consultas_consultorio, name="consultas_consultorio"),
-    path('vacunas_consultorio/',vacunas_consultorio, name="vacunas_consultorio"),
+    path('pacientes_consultorio/', pacientes_consultorio, name="pacientes_consultorio"),
+    path('consultas_consultorio/', consultas_consultorio, name="consultas_consultorio"),
+    path('vacunas_consultorio/', vacunas_consultorio, name="vacunas_consultorio"),
 ]

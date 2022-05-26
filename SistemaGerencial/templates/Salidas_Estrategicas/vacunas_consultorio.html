@@ -1,13 +1,16 @@
 {% extends 'base.html' %}  
 {% load static %} 
 
-{% block title %}<title>Pacientes por Consultorio</title>{% endblock title%}
+{% block title %}<title>Vacunas por Consultorio</title>{% endblock title%}
 
 {% block content %}
-<br>
-<h4>Vacunas por Clínica y Consultorio</h4>
-<br>
-<div>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>Vacunas por Clínica y Consultorio
+        </div>&nbsp;
+
+        <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
     <form role="form" method="get" >
         <div>    
             <table>
@@ -53,17 +56,19 @@
                     </td>
                 </tr>
             </table>
+            <br>
         </div>
     </form>
 </div>
 
-<br>
-
     {% if  consultorios %}
         {% for c in consultorios %}
-            <h5>{{ c.nombreCons}}</h5>
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>{{ c.nombreCons}}
+            </div>
+                <div class="card-body">
             <table class="table  table-bordered ">
-                <tr style="text-align: center; background-color: #393c7f; color:whitesmoke;" >
+                <tr style="text-align: center; background-color: #313131; color:whitesmoke;" >
                     <th>Vacuna</th>
                     <th>Undades Aplicadas</th>
                     
@@ -79,9 +84,10 @@
                    
                 {% endfor %}
             </table>
+            </div>
         {% endfor %}
     {% endif %}
-
+        </div>
     {% if noClinica %}
         <div class="col-xl-3 col-md-6">
             <div class="card bg-warning text-white mb-4">
@@ -92,6 +98,6 @@
                 </div>-->
             </div>
         </div>
-    
+        </div>
     {% endif %}
 {% endblock content%}  
