@@ -179,39 +179,124 @@ def consultas_consultorio(request):
     return render(request, 'Salidas_Estrategicas/consulta_consultorio.html', context)
 
 def vacunas_consultorio(request):
-    #fec = request.GET.get('buscarFecha') # Filtro por fecha
+    fec1 = request.GET.get('buscarFecha1') # Filtro por fecha
+    fec2 = request.GET.get('buscarFecha2') # Filtro por fecha
     cli = request.GET.get('buscarClinica') # Filtro por clinica
     cantidad = request.GET.get('buscarCantidad') # Filtro por cantidad
 
     clinicas = Clinica.objects.all()
     vacunas = Vacuna.objects.none()
 
-    context ={'clinicas':clinicas}
+    context ={'clinicas':clinicas,'cant': 0}
             
+    if (fec1 != "" or fec2 != "") and cli == '0':
+        msj = 'Debe seleccionar la clínica primero'
+        context ={'clinicas':clinicas, 'noClinica':msj} 
+
     if cli:
         if cli != '0':
-            consultorios = Consultorio.objects.filter(clinica_id = cli)
-            expedientes = Expediente.objects.filter(clinica_id = cli)
+            if fec1 != "" and fec2 != "":
+                formatted_date1 = time.strptime(fec1, "%Y-%m-%d")
+                formatted_date2 = time.strptime(fec2, "%Y-%m-%d")
+                if(formatted_date1 > formatted_date2):
+                    msj = 'La fecha 1 debe ser Menor que la fecha 2'
+                    context ={'clinicas':clinicas, 'noClinica':msj}
+                else:
+                    if cantidad == '0':
+                        consultorios = Consultorio.objects.filter(clinica_id = cli).order_by('id')
 
-            pacID = []
-            for e in expedientes:
-                if e.paciente_id not in pacID:
-                    pacID.append(e.paciente_id)
-                    
-            for p in pacID:
-                vacunas |= Vacuna.objects.filter(paciente_id = p).distinct()
+                        for c in consultorios:
+                            vacunas |= Vacuna.objects.filter(consultorio_id = c.id).filter(fechaAplic__gt = fec1).filter(fechaAplic__lt = fec2).order_by('consultorio_id')
+                        print(vacunas)
+                        nombres=[] # Guardamos los nombres de las vacunas para contar cuantas son c/u
+                        for vacuna in vacunas:
+                            if vacuna.nombreVac not in nombres:
+                                nombres.append(vacuna.nombreVac)
 
-            if cantidad == '1':
-                vacNom = []
-                for v in vacunas:
-                    vacNom.append(v.nombreVac)
+                        res=[] 
+                        for c in consultorios:
+                            for no in nombres:
+                                vac = Vacuna.objects.filter(consultorio_id = c.id).filter(nombreVac = no).filter(fechaAplic__gt = fec1).filter(fechaAplic__lt = fec2).count()
+                                va = Vacuna.objects.filter(nombreVac = no).first()
+
+                                if int(vac) != 0:
+                                    r = {'cID':c.id,'obj':va, 'cant':vac}
+                                    res.append(r)
                 
-                vacPopular = max(set(vacNom), key = vacNom.count)
-                context ={'clinicas':clinicas, 'consultorios':consultorios, 'exp':expedientes, 'vacunas':vacunas, 'vacPopular':vacPopular,'cliID': int(cli), 'cant': int(cantidad)}
-       
-            context ={'clinicas':clinicas, 'consultorios':consultorios, 'exp':expedientes, 'vacunas':vacunas,'cliID': int(cli)}
+                        context ={'clinicas':clinicas, 'consultorios':consultorios, 'vacunas':vacunas,'cliID': int(cli),'cant': int(cantidad),'conteo':res}
+                    else:
+                        consultorios = Consultorio.objects.filter(clinica_id = cli).order_by('id')
+                      
+                        res=[] 
+                        for c in consultorios:
+                            vacunas = Vacuna.objects.filter(consultorio_id = c.id).filter(fechaAplic__gt = fec1).filter(fechaAplic__lt = fec2).order_by('consultorio_id')
+
+                            
+                            nombres = [] # Guardar nombres de las vacunas de este consultorio
+                            for v in vacunas:
+                                nombres.append(v.nombreVac)
+                        # buscar el nombre que mas se repite
+                            popular = max(set(nombres), key = nombres.count)
+                        # contar cuantas vacunas cumplen con el nombre popular y que sean de este consultorio    
+                            vac = Vacuna.objects.filter(consultorio_id = c.id).filter(nombreVac = popular).count()
+                        # Count solo devuelve la cantdidad (int) para tener los datos de la vacuna tomamos una cualquiera
+                            va = Vacuna.objects.filter(nombreVac = popular).first()
+
+                            if int(vac) != 0:
+                                    r = {'cID':c.id,'obj':va, 'cant':vac}
+                                    res.append(r)
+
+                        context ={'clinicas':clinicas, 'consultorios':consultorios, 'vacunas':vacunas,'cliID': int(cli),'cant': int(cantidad),'conteo':res}
+            else:
+                if cantidad == '0':
+                    consultorios = Consultorio.objects.filter(clinica_id = cli).order_by('id')
+
+                    for c in consultorios:
+                        vacunas |= Vacuna.objects.filter(consultorio_id = c.id).order_by('consultorio_id')
+                    
+                    nombres=[] # Guardamos los nombres de las vacunas para contar cuantas son c/u
+                    for vacuna in vacunas:
+                        if vacuna.nombreVac not in nombres:
+                            nombres.append(vacuna.nombreVac)
+
+                    res=[] 
+                    for c in consultorios:
+                        for no in nombres:
+                            vac = Vacuna.objects.filter(consultorio_id = c.id).filter(nombreVac = no).count()
+                            va = Vacuna.objects.filter(nombreVac = no).first()
+                            #print(c.id, c.nombreCons, vac, va.nombreVac)
+
+                            if int(vac) != 0:
+                                r = {'cID':c.id,'obj':va, 'cant':vac}
+                                res.append(r)
             
+                    context ={'clinicas':clinicas, 'consultorios':consultorios, 'vacunas':vacunas,'cliID': int(cli),'cant': int(cantidad),'conteo':res}
+                else:
+                    consultorios = Consultorio.objects.filter(clinica_id = cli).order_by('id')
+
+                    res=[] 
+                    for c in consultorios:
+                        vacunas = Vacuna.objects.filter(consultorio_id = c.id).order_by('consultorio_id')
+
+                        
+                        nombres = [] # Guardar nombres de las vacunas de este consultorio
+                        for v in vacunas:
+                            nombres.append(v.nombreVac)
+                    # buscar el nombre que mas se repite
+                        popular = max(set(nombres), key = nombres.count)
+                    # contar cuantas vacunas cumplen con el nombre popular y que sean de este consultorio    
+                        vac = Vacuna.objects.filter(consultorio_id = c.id).filter(nombreVac = popular).count()
+                    # Count solo devuelve la cantdidad (int) para tener los datos de la vacuna tomamos una cualquiera
+                        va = Vacuna.objects.filter(nombreVac = popular).first()
+
+                        if int(vac) != 0:
+                                r = {'cID':c.id,'obj':va, 'cant':vac}
+                                res.append(r)
+
+                    context ={'clinicas':clinicas, 'consultorios':consultorios, 'vacunas':vacunas,'cliID': int(cli),'cant': int(cantidad),'conteo':res}
+
     return render(request, 'Salidas_Estrategicas/vacunas_consultorio.html', context)
+
 @login_required
 def registrarUsuario(request):
     data = {

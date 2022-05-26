@@ -26,7 +26,7 @@
                     </td>
                     <td width="100">
                         <select name="buscarCantidad" class="form-contol">
-                            {% if cantID == 0 %}
+                            {% if cant == 0 %}
                                 <option selected value = "0" >Todas</option>
                                 <option value = "1" >Más aplicadas</option>
                             {% else %}
@@ -35,11 +35,21 @@
                             {% endif %}
                         </select>
                     </td>
-                    <!--<td width="200" align="right">
-                        <input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha" value="{{ request.GET.buscarFecha }}">
-                    </td>-->
+                    <td width="250" align="right">
+                        Desde:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
+                    </td>
+                    <td width="250" align="right">
+                        Hasta:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
+                    </td>
                     <td width="100" align="right">
                         <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;">
+                        <a href="#" class="btn"
+                            style="color:white; background-color:rgb(199, 2, 2)"><i class="fa fa-file-pdf"
+                                aria-hidden="true"></i>  Generar Archivo PDF</a>
                     </td>
                 </tr>
             </table>
@@ -48,32 +58,40 @@
 </div>
 
 <br>
-{% if cantID == 0 %}
+
     {% if  consultorios %}
         {% for c in consultorios %}
             <h5>{{ c.nombreCons}}</h5>
             <table class="table  table-bordered ">
                 <tr style="text-align: center; background-color: #393c7f; color:whitesmoke;" >
-                    <th>Nombre de Paciente</th>
                     <th>Vacuna</th>
-                    <th>Fecha de Aplicación</th>
+                    <th>Undades Aplicadas</th>
+                    
                 </tr>
-                {% for v in vacunas %}
-                    {% for e in exp %}
-                        {% if v.paciente_id == e.paciente_id and c.id == e.consultorio_id%}
+                {% for v in conteo %}
+                        {% if c.id == v.cID%}
                             <tr>
-                                <td style="text-align: center">{{v.paciente.nombrePac}}</td>
-                                <td style="text-align: center">{{v.nombreVac}}</td>
-                                <td style="text-align: center">{{v.fechaAplic}}</td>
+                                <td width="250" style="text-align: center">{{v.obj.nombreVac}}</td>
+                                <td style="text-align: center">{{v.cant}}</td>
+                               
                             </tr>   
                         {% endif %}
-                    {% endfor %}
+                   
                 {% endfor %}
             </table>
         {% endfor %}
     {% endif %}
-{% else %}
-    
-{% endif %}
 
+    {% if noClinica %}
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body"><h5>{{noClinica}}</h5></div>
+                <!--<div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>-->
+            </div>
+        </div>
+    
+    {% endif %}
 {% endblock content%}  

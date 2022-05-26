@@ -54,6 +54,7 @@ class Consulta (models.Model):
 class Vacuna(models.Model):
     id = models.AutoField(primary_key = True)
     paciente = models.ForeignKey('Paciente', on_delete = models.PROTECT, null=True)
+    consultorio = models.ForeignKey('Consultorio', on_delete = models.PROTECT)
     fechaAplic = models.DateField(auto_now_add = True)# fecha de aplicada la vacuna
     nombreVac = models.CharField(max_length=100,null=False)
     
