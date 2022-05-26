@@ -60,24 +60,24 @@
                             </a>
                             <!-- Seccion Estrategico-->
                             <div class="sb-sidenav-menu-heading">Estratégico</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fa fa-bar-chart"></i></div>
-                                Gráficos
-                            </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'consultas_consultorio'%}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Datos
+                                Consultas-Consultorio
+                            </a>
+                            <a class="nav-link" href="{% url 'vacunas_consultorio'%}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Vacunas-Consultorio
                             </a>
 
                             <!-- Seccion Tactico-->
                             <div class="sb-sidenav-menu-heading">Táctico</div>
                             <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fa fa-bar-chart"></i></div>
-                                Gráficos
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Pendiente
                             </a>
                             <a class="nav-link" href="{% url 'pacientes_consultorio'%}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Datos
+                                Pacientes-Consultorio
                             </a>
                         </div>
                     </div>

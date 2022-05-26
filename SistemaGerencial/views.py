@@ -113,10 +113,10 @@ def listarUsuario(request):
         'usuarios': usuarios,
     }
 
-    if request.user is not None and request.user.rol != 'administrador':
-        return render(request, 'usuario/401.html')
-    else:
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
         return render(request, 'usuario/listarUsuario.html', data)
+    else:
+        return render(request, 'usuario/401.html')
 
 #Salidas ESTRATEGICAS -------------------------------------------------------
 def consultas_consultorio(request):
