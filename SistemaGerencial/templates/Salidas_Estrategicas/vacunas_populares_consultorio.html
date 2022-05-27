@@ -7,7 +7,7 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-table me-1"></i>Vacunas por Clínica y Consultorio
+            <i class="fas fa-table me-1"></i>Vacunas Más Aplicadas por Clínica y Consultorio
         </div>&nbsp;
 
         <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
@@ -27,9 +27,18 @@
                             {% endfor %}
                         </select>
                     </td>
-
-                    <input type="hidden"  id="buscarCantidad" name="buscarCantidad" value="0">
-                  
+                    <!--<td width="100">
+                        <select name="buscarCantidad" class="form-contol">
+                            {% if cant == 0 %}
+                                <option selected value = "0" >Todas</option>
+                                <option value = "1" >Más aplicadas</option>
+                            {% else %}
+                                <option value = "0" >Todas</option>
+                                <option selected value = "1" >Más aplicadas</option>
+                            {% endif %}
+                        </select>
+                    </td>-->
+                    <input type="hidden"  id="buscarCantidad" name="buscarCantidad" value="1">
                     <td width="250" align="right">
                         Desde:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
                     </td>
@@ -93,4 +102,4 @@
         </div>
     {% endif %}
 
-{% endblock content%} 
+{% endblock content%}  

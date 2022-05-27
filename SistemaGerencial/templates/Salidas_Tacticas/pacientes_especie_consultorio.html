@@ -7,7 +7,7 @@
     <br>
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>Listado de Pacientes por Clínica y Consultorio
+                <i class="fas fa-table me-1"></i>Listado de Pacientes por Especie
             </div>&nbsp;
 
             <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
@@ -27,9 +27,9 @@
                                         {% endfor %}
                                     </select>
                                 </td>
-                                <!--<td width="200">
+                                <td width="200">
                                     <select name="buscarEspecie" class="form-contol">
-                                        <option value = "0" >-Seleccione Especie-</option>
+                                        <option value = "0" >---Seleccione Especie---</option>
                                         {% for e in esp %}
                                             {% if e.pk == espID %}
                                                 <option selected value="{{e.pk}}">{{e.especie}}</option>
@@ -38,7 +38,7 @@
                                             {% endif %}
                                         {% endfor %}
                                     </select>
-                                </td>-->
+                                </td>
                                 <!--<td width="200" align="right">
                         <input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha" value="{{ request.GET.buscarFecha }}">
                     </td>-->
@@ -92,7 +92,7 @@
                             {% endfor %}
                         {% endfor %}
                     </table>
-                </div>
+                    </div>
                 {% endfor %}
             {% endif %}
             {% if noClinica %}
@@ -105,9 +105,9 @@
                         </div>-->
                     </div>
                 </div>
-              
+                
             {% endif %}
         </div>
 
-        
+       
 {% endblock content%}
