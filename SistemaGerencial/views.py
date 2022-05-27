@@ -12,13 +12,29 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count
+
 
 
 # Create your views here.
 
 @login_required
 def index(request):
-    return render(request, 'index.html')
+    labels = []
+    data = []
+
+    clinicas = Clinica.objects.all()
+    for c in clinicas:
+        labels.append(c.nombreCli)
+
+    print(labels)
+
+    consultorios = Consultorio.objects.values('clinica_id').annotate(Numero=Count('clinica_id'))
+    for cons in consultorios:
+        print(cons['Numero'])
+        data.append(cons['Numero'])
+
+    return render(request, 'index.html', {'labels': labels, 'data': data,})
 
 
 def registro(request):
