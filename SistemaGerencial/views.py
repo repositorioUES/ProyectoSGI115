@@ -27,11 +27,8 @@ def index(request):
     for c in clinicas:
         labels.append(c.nombreCli)
 
-    print(labels)
-
     consultorios = Consultorio.objects.values('clinica_id').annotate(Numero=Count('clinica_id'))
     for cons in consultorios:
-        print(cons['Numero'])
         data.append(cons['Numero'])
 
     return render(request, 'index.html', {'labels': labels, 'data': data,})
