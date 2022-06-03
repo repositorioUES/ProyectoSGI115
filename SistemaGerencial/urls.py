@@ -14,5 +14,5 @@ urlpatterns = [
     path('consultas_consultorio/', consultas_consultorio, name="consultas_consultorio"),
     path('vacunas_consultorio/', vacunas_consultorio, name="vacunas_consultorio"),
     path('vacunas_populares_consultorio/', vacunas_populares_consultorio, name="vacunas_populares_consultorio"),
-
+    path('listado_bitacora/', listado_bitacora, name="listado_bitacora"),
 ]

@@ -73,3 +73,14 @@ class Expediente (models.Model):
         i = str(id)
         return i
 #FIN CONSULTA
+
+# Modelo del BITACORA -------------------------------------------------------------------
+class Bitacora(models.Model):
+    id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey('User', on_delete = models.CASCADE)
+    accion = models.CharField(max_length=100, help_text="")
+    fecha = models.DateTimeField(auto_now_add = True)
+    
+    def __str__(self): #Para que retorne el nombre y no el Id
+        return self.nomUsuario
+#FIN BITACORA

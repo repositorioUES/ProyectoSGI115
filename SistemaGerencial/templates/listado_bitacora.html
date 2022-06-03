@@ -1,0 +1,90 @@
+{% extends 'base.html' %}  
+{% load static %} 
+
+{% block title %}<title>Bitacora</title>{% endblock title%}
+
+{% block content %}
+    <br>
+    
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>Registro de acciones de los usuarios
+        </div>&nbsp;
+
+        <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
+    <form role="form" method="get" >
+        <div>    
+            <table>
+                <tr>
+                    <!--<td width="200">
+                        <select name="buscarClinica" class="form-contol">
+                            <option value = "0" >-Seleccione Clínica-</option>
+                            {% for c in clinicas %}
+                                {% if c.pk == cliID %}
+                                    <option selected value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% else %}
+                                    <option value="{{c.pk}}">{{c.nombreCli}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>-->
+                  
+                    <td width="250" align="right">
+                        Desde:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
+                    </td>
+                    <td width="250" align="right">
+                        Hasta:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
+                    </td>
+                    <td width="100" align="right">
+                        <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:left;">
+                        <a href="#" class="btn"
+                            style="color:white; background-color:rgb(199, 2, 2)"><i class="fa fa-file-pdf"
+                                aria-hidden="true"></i>  Generar Archivo PDF</a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </form>
+</div>
+
+            <!--<div class="card-header">
+                <i class="fas fa-table me-1"></i>{{ c.nombreCons}}
+            </div>-->
+        <div class="card-body">
+            <table class="table  table-bordered ">
+                <tr style="text-align: center; background-color: #313131; color:whitesmoke;" >
+                    <th>Nombre Usuario</th>
+                    <th>Nombre Persona</th>
+                    <th>Fecha/hora</th>
+                    <th>Acción realizada</th>
+                </tr>
+                {% for b in bitacoras %}
+                    <tr>
+                        <td width="40" style="text-align: center">{{b.usuario.username}}</td>
+                        <td width="100" style="text-align: center">{{b.usuario.first_name}} {{b.usuario.last_name}}</td> 
+                        <td width="50" style="text-align: center">{{b.fecha}}</td>  
+                        <td width="150"style="text-align: center">{{b.accion}}</td> 
+                    </tr>   
+                {% endfor %}
+            </table>
+       
+
+    {% if msj %}
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body"><h5>{{msj}}</h5></div>
+                <!--<div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>-->
+            </div>
+       
+    
+    {% endif %}
+
+
+{% endblock content%} 

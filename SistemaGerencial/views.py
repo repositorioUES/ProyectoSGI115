@@ -43,6 +43,9 @@ def registro(request):
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
+
+            bitacora(request.user, "Registro de usuario: " + formulario.username)
+
             user = authenticate(username=formulario.cleaned_data["username"],
                                 password=formulario.cleaned_data["password1"])
             login(request, user)
@@ -68,6 +71,9 @@ def registrarUsuario(request):
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
+
+            bitacora(request.user, "Registro de usuario: " + formulario.username)
+
             messages.success(request, "Usuario registrado exitosamente")
             return redirect(to="listarUsuario")
         else:
@@ -82,6 +88,10 @@ def listarUsuario(request):
     }
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+       
+        if usuarios:
+            bitacora(request.user, "Ver listado de usuarios")
+
         return render(request, 'usuario/listarUsuario.html', data)
     else:
         return render(request, 'usuario/401.html')
@@ -98,6 +108,10 @@ def editarUsuario(request, id):
         formulario = CustomUserEditForm(data=request.POST, instance=usuario)
         if formulario.is_valid():
             formulario.save()
+
+            if usuario:
+                bitacora(request.user, "Modificación de usuario: " + usuario.username)
+
             messages.success(request, " Usuario actualizado correctamente")
             return redirect(to="listarUsuario")
         data['form'] = formulario
@@ -107,6 +121,10 @@ def editarUsuario(request, id):
 @login_required
 def eliminarUsuario(request, id):
     usuario = get_object_or_404(User, id=id)
+
+    if usuario:
+        bitacora(request.user, "Eliminación de usuario: " + usuario.username)
+
     usuario.delete()
     messages.success(request, " Usuario eliminado correctamente")
     return redirect(to="listarUsuario")
@@ -144,6 +162,8 @@ def pacientes_consultorio(request):
                 cant.append(z)
 
             context = {'clinicas': clinicas, 'consultorios': consultorios, 'pacientes': pacientes,'exp': expedientes, 'cliID': int(cli), 'cant': cant}
+            
+            bitacora(request.user, " Ver Pacientes por Consultorio")
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'tactico':
         return render(request, 'Salidas_Tacticas/pacientes_consultorio.html', context)
@@ -196,7 +216,9 @@ def pacientes_especie_consultorio(request):
                 context = {'clinicas': clinicas, 'consultorios': consultorios, 'pacientes': pacientes,
                                'exp': expedientes, 'esp': especies, 'espSel': espSeleccionada, 'cliID': int(cli),
                                'espID': int(espec), 'cant': cant}
-            print("eso")
+
+                bitacora(request.user, " Ver Pacientes por Especie por Consultorio")
+
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'tactico':
         return render(request, 'Salidas_Tacticas/pacientes_especie_consultorio.html', context)
     else:
@@ -246,6 +268,8 @@ def consultas_consultorio(request):
                     context = {'clinicas': clinicas, 'consultorios': consultorios, 'consultas': consultas,
                                'cliID': int(cli), 'cant': cant}
 
+                    bitacora(request.user, "Ver Consultas por Consultrio por rango de fecha")
+
             else:
                 consultorios = Consultorio.objects.filter(clinica_id=cli)
                 consultas = Consulta.objects.filter(clinica_id=cli)
@@ -264,6 +288,8 @@ def consultas_consultorio(request):
 
                 context = {'clinicas': clinicas, 'consultorios': consultorios, 'consultas': consultas,
                            'cliID': int(cli), 'cant': cant}
+
+                bitacora(request.user, "Ver Consultas por Consultorio")
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'estrategico':
         return render(request, 'Salidas_Estrategicas/consulta_consultorio.html', context)
@@ -318,10 +344,11 @@ def vacunas_consultorio(request):
                                 if int(vac) != 0:
                                     r = {'cID': c.id, 'obj': va, 'cant': vac}
                                     res.append(r)
-                        vista = 'Salidas_Estrategicas/vacunas_consultorio.html'
+                        
                         context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                    'cliID': int(cli), 'conteo': res}
-                   
+
+                        bitacora(request.user, "Vacunas por Consultorio por rango de fecha")
             else:
                 if cantidad == '0':
                     consultorios = Consultorio.objects.filter(clinica_id=cli).order_by('id')
@@ -343,9 +370,11 @@ def vacunas_consultorio(request):
                             if int(vac) != 0:
                                 r = {'cID': c.id, 'obj': va, 'cant': vac}
                                 res.append(r)
-                    #vista = 'Salidas_Estrategicas/vacunas_consultorio.html'
+                    
                     context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                'cliID': int(cli), 'conteo': res}
+
+                    bitacora(request.user, "Vacunas por Consultorio")
     
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'estrategico':
         return render(request, 'Salidas_Estrategicas/vacunas_consultorio.html', context)
@@ -402,6 +431,8 @@ def vacunas_populares_consultorio(request):
         
                         context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                    'cliID': int(cli), 'conteo': res}
+
+                        bitacora(request.user, "Vacunas más aplicadas por rango de fecha")
             else:
                 if cantidad == '1':
                     consultorios = Consultorio.objects.filter(clinica_id=cli).order_by('id')
@@ -428,7 +459,53 @@ def vacunas_populares_consultorio(request):
                     context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                'cliID': int(cli), 'conteo': res}
 
+                    bitacora(request.user, "Vacunas más aplicadas")
+
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'estrategico':
         return render(request, 'Salidas_Estrategicas/vacunas_populares_consultorio.html', context)
     else:
         return render(request, 'usuario/401.html')
+
+
+def bitacora(usuario, accion):
+    bitacora = Bitacora()
+    
+    bitacora.usuario= usuario
+    bitacora.accion = accion
+
+    bitacora.save()
+
+    return 0
+
+def listado_bitacora(request):
+    fec1 = request.GET.get('buscarFecha1')  # Filtro por fecha
+    fec2 = request.GET.get('buscarFecha2')  # Filtro por fecha
+    
+    context = {}
+
+    if (fec1 == "" and fec2 == "") or (fec1 == None and fec2 == None):
+        bitacoras = Bitacora.objects.all().order_by('-fecha')
+        context = {'bitacoras':bitacoras}
+        print(fec1, fec2, "no trae na'")
+    else:
+        if (fec1 == "" and fec2 != "") or (fec1 != "" and fec2 == ""):
+            msj = 'Debe proporcionar ambas fechas para buscar por rango'
+            context = {'msj': msj}
+            print(fec1, fec2, "falta 1")
+
+        if fec1 != "" and fec2 != "":
+            if (fec1 != "" and fec1 != None):
+                formatted_date1 = time.strptime(fec1, "%Y-%m-%d")
+            if (fec2 != "" and fec2 != None):
+                formatted_date2 = time.strptime(fec2, "%Y-%m-%d")
+
+            if (formatted_date1 > formatted_date2):
+                msj = 'La fecha 1 debe ser Menor que la fecha 2'
+                context = {'msj': msj}
+                print(fec1, fec2, "vienen las 2")
+            else:
+                bitacoras = Bitacora.objects.filter(fecha__gt=fec1).filter(fecha__lt=fec2).order_by('-fecha')
+                context = {'bitacoras':bitacoras}
+                print(fec1, fec2)
+
+    return render(request, 'listado_bitacora.html', context)
