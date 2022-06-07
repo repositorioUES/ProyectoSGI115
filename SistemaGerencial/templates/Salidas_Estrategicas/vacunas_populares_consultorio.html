@@ -40,10 +40,10 @@
                     </td>-->
                     <input type="hidden"  id="buscarCantidad" name="buscarCantidad" value="1">
                     <td width="250" align="right">
-                        Desde:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
+                        Desde:<input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
                     </td>
                     <td width="250" align="right">
-                        Hasta:<input type="text"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
+                        Hasta:<input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
                     </td>
                     <td width="100" align="right">
                         <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
