@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>Inicio</title>{% endblock title%}
+
+{% block content %}
+    <br>
+    <div>
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>Respaldo y restauracion de la Base de Datos
+        </div>&nbsp;
+
+        <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
+            <a href="#"><button class="btn btn-success" onclick="location.href='{% url 'respaldo' %}'"><i class="fa fa-database" aria-hidden="true"></i>  Generar respaldo</button></a> <hr>
+            {{backup}}
+        </div>
+        <br>
+
+            <div class="d-flex justify-content start">&nbsp;&nbsp;&nbsp;
+            <a href="#"><button class="btn btn-primary" onclick="location.href='{% url 'restauracion' %}'"><i class="fa fa-database" aria-hidden="true"></i> Generar Restauracion</button></a>
+            {{restore}}
+        </div>
+
+    </div>
+
+
+
+{% endblock content%}

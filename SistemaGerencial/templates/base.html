@@ -59,9 +59,25 @@
                                 Usuarios
                             </a>
                             <a class="nav-link" href="{% url 'listado_bitacora'%}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-users"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-list"></i></div>
                                 Bitacora
                             </a>
+                            <a class="nav-link" href="{% url 'respaldo_restauracion'%}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-database"></i></div>
+                                Respaldo/Restauracion
+                            </a>
+
+                            <!-- Seccion Tactico-->
+                            <div class="sb-sidenav-menu-heading">Táctico</div>
+                            <a class="nav-link" href="{% url 'pacientes_consultorio'%}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Pacientes-Consultorio
+                            </a>
+                            <a class="nav-link" href="{% url 'pacientes_especie_consultorio'%}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Pacientes-Especie
+                            </a>
+
                             <!-- Seccion Estrategico-->
                             <div class="sb-sidenav-menu-heading">Estratégico</div>
                             <a class="nav-link" href="{% url 'consultas_consultorio'%}">
@@ -74,18 +90,7 @@
                             </a>
                             <a class="nav-link" href="{% url 'vacunas_populares_consultorio'%}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Vacunas-Más-Aplicades
-                            </a>
-
-                            <!-- Seccion Tactico-->
-                            <div class="sb-sidenav-menu-heading">Táctico</div>
-                            <a class="nav-link" href="{% url 'pacientes_consultorio'%}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Pacientes-Consultorio
-                            </a>
-                            <a class="nav-link" href="{% url 'pacientes_especie_consultorio'%}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Pacientes-Por-Especie
+                                Vacunas-Más-Aplicadas
                             </a>
                         </div>
                     </div>
@@ -114,7 +119,7 @@
                 <!-- Seccion Footer-->
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-center small">
+                        <div class="d-flex align-items-start justify-content-start small">
                             <div class="text-muted">Copyright &copy; SIG115</div>
                             <!-- Opcional
                             <div>

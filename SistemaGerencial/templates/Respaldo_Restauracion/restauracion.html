@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>404 Error</title>
+        <title>Restauracion</title>
 		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -19,9 +19,9 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
                                 <div class="text-center mt-4">
-                                    <h1 style="font-size:200px; color:#ffffff; ">401</h1>
-                                    <p class="lead" style="font-size:50px; color:#ffffff; ">NO AUTORIZADO</p>
-                                    <a href="{% url 'index' %}">
+                                    <img  class="logo"  src="{% static 'images/database.png'%}" alt="logo">
+                                    <p class="lead" style="font-size:40px; color:#ffffff; ">Se ha restaurado la Base de Datos</p>
+                                    <a href="{% url 'respaldo_restauracion' %}">
                                         <i class="fas fa-arrow-left me-1"></i>
                                         Regresar
                                     </a>
@@ -34,7 +34,7 @@
             <div id="layoutError_footer">
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
+                        <div class="d-flex align-items-start justify-content-between small">
                             <div class="text-muted">Copyright &copy; SIG115 2022</div>
                         </div>
                     </div>

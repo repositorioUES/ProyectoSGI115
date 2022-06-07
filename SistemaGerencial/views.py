@@ -1,3 +1,5 @@
+import os
+from ProyectoSIG import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -8,12 +10,19 @@ from SistemaGerencial.forms import *
 from SistemaGerencial.forms import CustomUserCreationForm, CustomUserEditForm
 from SistemaGerencial.models import User
 import time
+from datetime import datetime
 from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
-
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.views.generic.edit import View
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.core import management
+from django.core.management.commands import loaddata, dumpdata
 
 
 # Create your views here.
@@ -31,7 +40,15 @@ def index(request):
     for cons in consultorios:
         data.append(cons['Numero'])
 
-    return render(request, 'index.html', {'labels': labels, 'data': data,})
+    cli = Clinica.objects.all().count()
+    con = Consultorio.objects.all().count()
+    context = {
+        'clinicas': cli,
+        'consultorios': con,
+        'labels': labels,
+        'data': data,
+    }
+    return render(request, 'index.html', context)
 
 
 def registro(request):
@@ -88,7 +105,7 @@ def listarUsuario(request):
     }
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
-       
+
         if usuarios:
             bitacora(request.user, "Ver listado de usuarios")
 
@@ -161,14 +178,16 @@ def pacientes_consultorio(request):
                 z['cant'] = i
                 cant.append(z)
 
-            context = {'clinicas': clinicas, 'consultorios': consultorios, 'pacientes': pacientes,'exp': expedientes, 'cliID': int(cli), 'cant': cant}
-            
+            context = {'clinicas': clinicas, 'consultorios': consultorios, 'pacientes': pacientes, 'exp': expedientes,
+                       'cliID': int(cli), 'cant': cant}
+
             bitacora(request.user, " Ver Pacientes por Consultorio")
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'tactico':
         return render(request, 'Salidas_Tacticas/pacientes_consultorio.html', context)
     else:
         return render(request, 'usuario/401.html')
+
 
 @login_required
 def pacientes_especie_consultorio(request):
@@ -214,8 +233,8 @@ def pacientes_especie_consultorio(request):
                     cant.append(z)
 
                 context = {'clinicas': clinicas, 'consultorios': consultorios, 'pacientes': pacientes,
-                               'exp': expedientes, 'esp': especies, 'espSel': espSeleccionada, 'cliID': int(cli),
-                               'espID': int(espec), 'cant': cant}
+                           'exp': expedientes, 'esp': especies, 'espSel': espSeleccionada, 'cliID': int(cli),
+                           'espID': int(espec), 'cant': cant}
 
                 bitacora(request.user, " Ver Pacientes por Especie por Consultorio")
 
@@ -312,7 +331,7 @@ def vacunas_consultorio(request):
     if (fec1 != "" or fec2 != "") and cli == '0':
         msj = 'Debe seleccionar la clínica primero'
         context = {'clinicas': clinicas, 'noClinica': msj}
-    
+
     if cli:
         if cli != '0':
             if fec1 != "" and fec2 != "":
@@ -344,7 +363,7 @@ def vacunas_consultorio(request):
                                 if int(vac) != 0:
                                     r = {'cID': c.id, 'obj': va, 'cant': vac}
                                     res.append(r)
-                        
+
                         context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                    'cliID': int(cli), 'conteo': res}
 
@@ -370,16 +389,17 @@ def vacunas_consultorio(request):
                             if int(vac) != 0:
                                 r = {'cID': c.id, 'obj': va, 'cant': vac}
                                 res.append(r)
-                    
+
                     context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                'cliID': int(cli), 'conteo': res}
 
                     bitacora(request.user, "Vacunas por Consultorio")
-    
+
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador' or request.user.rol == 'estrategico':
         return render(request, 'Salidas_Estrategicas/vacunas_consultorio.html', context)
     else:
         return render(request, 'usuario/401.html')
+
 
 @login_required
 def vacunas_populares_consultorio(request):
@@ -396,7 +416,7 @@ def vacunas_populares_consultorio(request):
     if (fec1 != "" or fec2 != "") and cli == '0':
         msj = 'Debe seleccionar la clínica primero'
         context = {'clinicas': clinicas, 'noClinica': msj}
-    
+
     if cli:
         if cli != '0':
             if fec1 != "" and fec2 != "":
@@ -418,7 +438,7 @@ def vacunas_populares_consultorio(request):
                             for v in vacunas:
                                 nombres.append(v.nombreVac)
                             # buscar el nombre que mas se repite
-                            if len(nombres)> 0:
+                            if len(nombres) > 0:
                                 popular = max(set(nombres), key=nombres.count)
                                 # contar cuantas vacunas cumplen con el nombre popular y que sean de este consultorio
                                 vac = Vacuna.objects.filter(consultorio_id=c.id).filter(nombreVac=popular).count()
@@ -428,7 +448,7 @@ def vacunas_populares_consultorio(request):
                                 if int(vac) != 0:
                                     r = {'cID': c.id, 'obj': va, 'cant': vac}
                                     res.append(r)
-        
+
                         context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                    'cliID': int(cli), 'conteo': res}
 
@@ -455,7 +475,7 @@ def vacunas_populares_consultorio(request):
                             if int(vac) != 0:
                                 r = {'cID': c.id, 'obj': va, 'cant': vac}
                                 res.append(r)
-                    
+
                     context = {'clinicas': clinicas, 'consultorios': consultorios, 'vacunas': vacunas,
                                'cliID': int(cli), 'conteo': res}
 
@@ -469,24 +489,24 @@ def vacunas_populares_consultorio(request):
 
 def bitacora(usuario, accion):
     bitacora = Bitacora()
-    
-    bitacora.usuario= usuario
+
+    bitacora.usuario = usuario
     bitacora.accion = accion
 
     bitacora.save()
 
     return 0
 
+
 def listado_bitacora(request):
     fec1 = request.GET.get('buscarFecha1')  # Filtro por fecha
     fec2 = request.GET.get('buscarFecha2')  # Filtro por fecha
-    
+
     context = {}
 
     if (fec1 == "" and fec2 == "") or (fec1 == None and fec2 == None):
         bitacoras = Bitacora.objects.all().order_by('-fecha')
-        context = {'bitacoras':bitacoras}
-        print(fec1, fec2, "no trae na'")
+        context = {'bitacoras': bitacoras}
     else:
         if (fec1 == "" and fec2 != "") or (fec1 != "" and fec2 == ""):
             msj = 'Debe proporcionar ambas fechas para buscar por rango'
@@ -505,7 +525,332 @@ def listado_bitacora(request):
                 print(fec1, fec2, "vienen las 2")
             else:
                 bitacoras = Bitacora.objects.filter(fecha__gt=fec1).filter(fecha__lt=fec2).order_by('-fecha')
-                context = {'bitacoras':bitacoras}
+                context = {'bitacoras': bitacoras}
                 print(fec1, fec2)
 
     return render(request, 'listado_bitacora.html', context)
+
+class reporteUsuarios(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            usuarios = User.objects.all()
+            generado = datetime.now()
+
+            template = get_template('reportes/reporteUsuarios.html')
+            context = {
+                'usuarios': usuarios,
+                'generado': generado,
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            bitacora(request.user, "Generó reporte de Usuarios")
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('listarUsuario'))
+
+class reporteBitacora(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            bitacoras = Bitacora.objects.all().order_by('-fecha')
+            generado = datetime.now()
+
+            template = get_template('reportes/reporteBitacora.html')
+            context = {
+                'bitacoras': bitacoras,
+                'generado': generado,
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            bitacora(request.user, "Generó reporte de Bitacora")
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('listarUsuario'))
+
+class reportePacientesConsultorio(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            generado = datetime.now()
+
+            template = get_template('reportes/reportePacientesConsultorio.html')
+            context = {
+                'generado': generado,
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            bitacora(request.user, "Generó reporte Pacientes-Consultorio")
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('pacientes_consultorio'))
+
+class reportePacientesEspecie(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            template = get_template('reportes/reportePacientesEspecie.html')
+            context = {
+
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('pacientes_especie_consultorio'))
+
+class reporteConsultasConsultorio(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            generado = datetime.now()
+            template = get_template('reportes/reporteConsultasConsultorio.html')
+            context = {
+                'generado': generado,
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            bitacora(request.user, "Generó reporte Consultas-Consultorios")
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('consultas_consultorio'))
+
+class reporteVacunasConsultorio(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            template = get_template('reportes/reporteVacunasConsultorio.html')
+            context = {
+
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('vacunas_consultorio'))
+
+class reporteVacunasMasAplicadas(LoginRequiredMixin,View):
+
+    def link_callback(self, uri, rel):
+
+        # use short variable names
+        sUrl = settings.STATIC_URL
+        mUrl = settings.MEDIA_URL
+        mRoot = settings.MEDIA_ROOT
+
+        # convert URIs to absolute system paths
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+
+        else:
+            return uri  # handle absolute uri (ie: http://some.tld/foo.png)
+
+        # make sure that file exists
+        if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+        return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+
+            template = get_template('reportes/reporteVacunasMasAplicadas.html')
+            context = {
+
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+
+            # create a pdf
+            pisa_status = pisa.CreatePDF(html, dest=response, link_callback=self.link_callback)
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('vacunas_populares_consultorio'))
+
+@login_required()
+def respaldo_restauracion(request):
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+        return render(request, 'Respaldo_Restauracion/respaldo_restauracion.html')
+    else:
+        return render(request, 'usuario/401.html')
+
+@login_required()
+def respaldo(request):
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+        backup = management.call_command('dumpdatautf8', output='respaldo.json', indent=2, format='json', exclude=['auth', 'contenttypes', 'sessions'])
+        bitacora(request.user, "Generó respaldo de la Base de Datos")
+        return render(request, 'Respaldo_Restauracion/respaldo.html', {"backup": backup})
+    else:
+        return render(request, 'usuario/401.html')
+
+@login_required()
+def restauracion(request):
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+        restore = management.call_command('loaddata', 'respaldo.json')
+        bitacora(request.user, "Restauró la Base de Datos")
+        return render(request, 'Respaldo_Restauracion/restauracion.html', {"restore": restore})
+    else:
+        return render(request, 'usuario/401.html')

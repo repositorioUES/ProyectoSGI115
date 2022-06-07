@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte Pacientes por Consultorio</title>
+</head>
+<body>
+<div class="card mb-4">
+        <h1>Listado de Pacientes por Clínica y Consultorio</h1>
+
+    <h2>Clinica Pets</h2>
+
+
+    <div class="card-body">
+        <table>
+            <h2>Pets Cojutepeque (7 Pacientes)</h2>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th >Nombre de Paciente	</th>
+                <th>Especie</th>
+                <th>Fecha de Inscripción</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Doggi</td>
+                <td>perro</td>
+                <td>Oct. 7, 2019</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Piolin</td>
+                <td>canario</td>
+                <td>Sept. 1, 2021</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Jake</td>
+                <td>perro</td>
+                <td>Ene. 3, 2022</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Proser</td>
+                <td>perro</td>
+                <td>Abr. 4, 2021</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Wishbone</td>
+                <td>perro</td>
+                <td>Dic. 16, 2019</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Shalquoir</td>
+                <td>gato</td>
+                <td>Dic. 10, 2020</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Pancho</td>
+                <td>loro</td>
+                <td>Jul. 24, 2019</td>
+            </tr>
+        </table>
+
+        <table>
+            <h2>Pets Aguilares (3 Pacientes)</h2>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th >Nombre de Paciente	</th>
+                <th>Especie</th>
+                <th>Fecha de Inscripción</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Neron</td>
+                <td>perro</td>
+                <td>Dic. 31, 2021</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Birdie</td>
+                <td>Birdie</td>
+                <td>Mayo 14, 2020</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Lassie</td>
+                <td>perro</td>
+                <td>Ago. 13, 2020</td>
+            </tr>
+            </table>
+    </div>
+</div>
+
+<h3>Generado: {{ generado }}</h3>
+
+</body>
+</html>

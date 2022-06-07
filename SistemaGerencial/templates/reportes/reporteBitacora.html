@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Reporte Bitacora</title>
+</head>
+<body>
+<div class="card mb-4">
+        <h1>Registro de acciones de los usuarios</h1>
+
+    <div class="card-body">
+        <table>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th>Nombre Usuario</th>
+                <th>Nombre Persona	</th>
+                <th>Fecha/hora	</th>
+                <th>Fecha/hora	</th>
+            </tr>
+            {% for b in bitacoras %}
+                <tr style="text-align: center;">
+                    <td>{{b.usuario.username}}</td>
+                    <td>{{b.usuario.first_name}} {{b.usuario.last_name}}</td>
+                    <td>{{b.fecha}}</td>
+                    <td>{{b.accion}}</td>
+                </tr>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+
+<h3>Generado: {{ generado }}</h3>
+
+</body>
+</html>
