@@ -15,4 +15,15 @@ urlpatterns = [
     path('vacunas_consultorio/', vacunas_consultorio, name="vacunas_consultorio"),
     path('vacunas_populares_consultorio/', vacunas_populares_consultorio, name="vacunas_populares_consultorio"),
     path('listado_bitacora/', listado_bitacora, name="listado_bitacora"),
+    path('reporte_Usuarios/', reporteUsuarios.as_view(), name="reporte_Usuarios"),
+    path('reporte_Bitacora/', reporteBitacora.as_view(), name="reporte_Bitacora"),
+    path('reporte_PacientesConsultorio/', reportePacientesConsultorio.as_view(), name="reporte_PacientesConsultorio"),
+    path('reporte_PacientesEspecie/', reportePacientesEspecie.as_view(), name="reporte_PacientesEspecie"),
+    path('reporte_ConsultasConsultorio/', reporteConsultasConsultorio.as_view(), name="reporte_ConsultasConsultorio"),
+    path('reporte_VacunasConsultorio/', reporteVacunasConsultorio.as_view(), name="reporte_VacunasConsultorio"),
+    path('reporte_VacunasMasAplicadas/', reporteVacunasMasAplicadas.as_view(), name="reporte_VacunasMasAplicadas"),
+    path('respaldo_restauracion/', respaldo_restauracion, name="respaldo_restauracion"),
+    path('respaldo/', respaldo, name="respaldo"),
+    path('restauracion/', restauracion, name="restauracion"),
+
 ]

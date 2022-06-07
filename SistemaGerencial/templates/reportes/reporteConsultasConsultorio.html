@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte Consultas por Consultorio</title>
+</head>
+<body>
+<div class="card mb-4">
+        <h1>Consultas por Clínica y Consultorio</h1>
+
+    <h2>Clinica Pets</h2>
+
+
+    <div class="card-body">
+        <table>
+            <h2>Pets Cojutepeque (2 Pacientes)</h2>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th >Nombre de Paciente	</th>
+                <th>Medico</th>
+                <th>Fecha de Consulta</th>
+                <th>Hora</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Neron</td>
+                <td>Juan Lopez</td>
+                <td>Mar. 2, 2022	</td>
+                <td>8 am</td>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Neron</td>
+                <td>Juan Lopez	</td>
+                <td>Oct. 8, 2019</td>
+                <td>10 am</td>
+            </tr>
+        </table>
+
+        <table>
+            <h2>Pets Aguilares (1 Pacientes)</h2>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th >Nombre de Paciente	</th>
+                <th>Especie</th>
+                <th>Fecha de Inscripción</th>
+                <th>Hora</th>
+            </tr>
+            <tr style="text-align: center;">
+                <td>Lassie</td>
+                <td>Slvia de Molina	</td>
+                <td>Mayo 29, 2021	</td>
+                <td>8 am</td>
+            </tr>
+            </table>
+    </div>
+</div>
+
+<h3>Generado: {{ generado }}</h3>
+
+</body>
+</html>

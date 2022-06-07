@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Reporte de Usuarios</title>
+</head>
+<body>
+<div class="card mb-4">
+        <h1>Listado de Usuarios</h1>
+
+    <div class="card-body">
+        <table>
+            <tr style="text-align: center; background-color: #313131; color:whitesmoke;">
+                <th style="width:3%">Id</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th style="width:25%">Correo</th>
+                <th style="width:20%">Ultima sesión</th>
+                <th>Rol</th>
+            </tr>
+            {% for usuario in usuarios %}
+                <tr style="text-align: center;">
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.first_name }}</td>
+                    <td>{{ usuario.last_name }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.last_login }}</td>
+                    <td>{{ usuario.rol }}</td>
+                </tr>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+
+<h3>Generado: {{ generado }}</h3>
+
+</body>
+</html>
