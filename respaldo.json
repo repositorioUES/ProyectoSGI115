@@ -1,0 +1,1597 @@
+[
+{
+  "model": "SistemaGerencial.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$YpfcdMXb6477PS5CiQOckD$jac7GKIlm/BeMd2jfEgqNS9Hd31/V3OZUM0zvoAA/L0=",
+    "last_login": "2022-05-26T23:22:22.073Z",
+    "is_superuser": false,
+    "username": "Administrador",
+    "first_name": "Christian",
+    "last_name": "Garcia",
+    "email": "krisuchiha10@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-26T19:26:36.004Z",
+    "rol": "administrador",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "SistemaGerencial.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$fXbVY9w5K2sqgD33eYdLRS$8WbyxQOCNROJe3odp7cx2k2h1GD30WfsakvQ1ImX2Tc=",
+    "last_login": "2022-05-26T22:46:12.827Z",
+    "is_superuser": false,
+    "username": "Tactico",
+    "first_name": "Christian",
+    "last_name": "Garcia",
+    "email": "go11001@ues.edu.sv",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-26T19:42:07.292Z",
+    "rol": "tactico",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "SistemaGerencial.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$YYp3Pj2jQciGK24R6GGOJY$i1sv5DfzZMJ5x9x/D/4hqRvJ/W4BCBQm19Ezf+/Y9Is=",
+    "last_login": "2022-05-26T22:45:56.781Z",
+    "is_superuser": false,
+    "username": "Estrategico",
+    "first_name": "Christian Alberto",
+    "last_name": "Ordoñez",
+    "email": "go11001@ues.edu.sv",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-26T19:42:26.258Z",
+    "rol": "estrategico",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "SistemaGerencial.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$ympo6pmM826dsWdi3Hbb2N$lNeHD3mO7K+wpXZsl9JZUeOpGUq10nHQTDptDOAfLG4=",
+    "last_login": "2022-06-06T21:54:49.872Z",
+    "is_superuser": false,
+    "username": "Sirius",
+    "first_name": "Ruddy Alfredo",
+    "last_name": "Perez",
+    "email": "ruddyperez747@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-27T17:11:07.388Z",
+    "rol": "administrador",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 1,
+  "fields": {
+    "nombrePac": "Poochie",
+    "especie": "perro",
+    "fechaInscrip": "2021-07-31"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 2,
+  "fields": {
+    "nombrePac": "Doggi",
+    "especie": "perro",
+    "fechaInscrip": "2019-10-07"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 3,
+  "fields": {
+    "nombrePac": "Neron",
+    "especie": "perro",
+    "fechaInscrip": "2021-12-31"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 4,
+  "fields": {
+    "nombrePac": "Birdie",
+    "especie": "canario",
+    "fechaInscrip": "2020-05-14"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 5,
+  "fields": {
+    "nombrePac": "Piolin",
+    "especie": "canario",
+    "fechaInscrip": "2021-09-01"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 6,
+  "fields": {
+    "nombrePac": "Canito",
+    "especie": "perro",
+    "fechaInscrip": "2021-07-31"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 7,
+  "fields": {
+    "nombrePac": "Jake",
+    "especie": "perro",
+    "fechaInscrip": "2022-01-03"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 8,
+  "fields": {
+    "nombrePac": "Lassie",
+    "especie": "perro",
+    "fechaInscrip": "2020-08-13"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 9,
+  "fields": {
+    "nombrePac": "Proser",
+    "especie": "perro",
+    "fechaInscrip": "2021-04-04"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 10,
+  "fields": {
+    "nombrePac": "Wishbone",
+    "especie": "perro",
+    "fechaInscrip": "2019-12-16"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 11,
+  "fields": {
+    "nombrePac": "Ranger",
+    "especie": "perro",
+    "fechaInscrip": "2020-09-02"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 12,
+  "fields": {
+    "nombrePac": "Shasha",
+    "especie": "gato",
+    "fechaInscrip": "2022-01-03"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 13,
+  "fields": {
+    "nombrePac": "Nago",
+    "especie": "gato",
+    "fechaInscrip": "2021-10-13"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 14,
+  "fields": {
+    "nombrePac": "Michi",
+    "especie": "gato",
+    "fechaInscrip": "2019-02-03"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 15,
+  "fields": {
+    "nombrePac": "Cheshire",
+    "especie": "gato",
+    "fechaInscrip": "2022-11-24"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 16,
+  "fields": {
+    "nombrePac": "Alvina",
+    "especie": "gato",
+    "fechaInscrip": "2020-08-30"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 17,
+  "fields": {
+    "nombrePac": "Neko",
+    "especie": "gato",
+    "fechaInscrip": "2021-03-03"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 18,
+  "fields": {
+    "nombrePac": "Shalquoir",
+    "especie": "gato",
+    "fechaInscrip": "2020-12-10"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 19,
+  "fields": {
+    "nombrePac": "Parry",
+    "especie": "loro",
+    "fechaInscrip": "2020-05-14"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 20,
+  "fields": {
+    "nombrePac": "Taca",
+    "especie": "loro",
+    "fechaInscrip": "2021-05-20"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 21,
+  "fields": {
+    "nombrePac": "Pancho",
+    "especie": "loro",
+    "fechaInscrip": "2019-07-24"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 22,
+  "fields": {
+    "nombrePac": "Hamtaro",
+    "especie": "hamster",
+    "fechaInscrip": "2021-12-04"
+  }
+},
+{
+  "model": "SistemaGerencial.paciente",
+  "pk": 23,
+  "fields": {
+    "nombrePac": "Hammie",
+    "especie": "hamster",
+    "fechaInscrip": "2020-05-14"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 1,
+  "fields": {
+    "propietario": "José Antonio",
+    "nombreCli": "Pets"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 2,
+  "fields": {
+    "propietario": "Andrew Pérez",
+    "nombreCli": "Amigos Peludos"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 3,
+  "fields": {
+    "propietario": "Maria Celia",
+    "nombreCli": "Huellitas"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 4,
+  "fields": {
+    "propietario": "Christian",
+    "nombreCli": "Animals"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 5,
+  "fields": {
+    "propietario": "Raul",
+    "nombreCli": "Petos"
+  }
+},
+{
+  "model": "SistemaGerencial.clinica",
+  "pk": 6,
+  "fields": {
+    "propietario": "Raul",
+    "nombreCli": "Vet Laguna"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 1,
+  "fields": {
+    "clinica": 1,
+    "nombreCons": "Pets Cojutepeque"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 2,
+  "fields": {
+    "clinica": 1,
+    "nombreCons": "Pets Aguilares"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 3,
+  "fields": {
+    "clinica": 2,
+    "nombreCons": "AP Ilosbasco"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 4,
+  "fields": {
+    "clinica": 2,
+    "nombreCons": "AP San Salvador"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 5,
+  "fields": {
+    "clinica": 3,
+    "nombreCons": "Huellitas San Miguel"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 6,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas Apopa"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 7,
+  "fields": {
+    "clinica": 2,
+    "nombreCons": "AP Soyapango"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 8,
+  "fields": {
+    "clinica": 4,
+    "nombreCons": "Petos  A"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 9,
+  "fields": {
+    "clinica": 4,
+    "nombreCons": "Petos B"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 10,
+  "fields": {
+    "clinica": 4,
+    "nombreCons": "Petos C"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 11,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 12,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 13,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 14,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 15,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 16,
+  "fields": {
+    "clinica": 5,
+    "nombreCons": "Petos D"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 17,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas San Miguel"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 18,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas Apopa"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 19,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas San Miguel"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 20,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas Apopa"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 21,
+  "fields": {
+    "clinica": 6,
+    "nombreCons": "Huellitas Apopa"
+  }
+},
+{
+  "model": "SistemaGerencial.consultorio",
+  "pk": 22,
+  "fields": {
+    "clinica": 3,
+    "nombreCons": "Huellitas San Miguel"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 1,
+  "fields": {
+    "paciente": 3,
+    "fechaConsulta": "2022-03-02",
+    "clinica": 1,
+    "consultorio": 1,
+    "hora": "8 am",
+    "medico": "Juan Lopez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 2,
+  "fields": {
+    "paciente": 23,
+    "fechaConsulta": "2021-07-22",
+    "clinica": 3,
+    "consultorio": 6,
+    "hora": "4:30 pm",
+    "medico": "Ana Martinez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 3,
+  "fields": {
+    "paciente": 15,
+    "fechaConsulta": "2020-12-12",
+    "clinica": 2,
+    "consultorio": 4,
+    "hora": "11 am",
+    "medico": "Luz de Maria"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 4,
+  "fields": {
+    "paciente": 1,
+    "fechaConsulta": "2020-05-30",
+    "clinica": 3,
+    "consultorio": 5,
+    "hora": "2:30 am",
+    "medico": "Pedro Juarez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 5,
+  "fields": {
+    "paciente": 8,
+    "fechaConsulta": "2021-05-29",
+    "clinica": 1,
+    "consultorio": 2,
+    "hora": "8 am",
+    "medico": "Slvia de Molina"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 6,
+  "fields": {
+    "paciente": 16,
+    "fechaConsulta": "2020-07-01",
+    "clinica": 3,
+    "consultorio": 5,
+    "hora": "9:45 am",
+    "medico": "Pedro Juarez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 7,
+  "fields": {
+    "paciente": 20,
+    "fechaConsulta": "2022-06-02",
+    "clinica": 2,
+    "consultorio": 3,
+    "hora": "7 am",
+    "medico": "Marcos Platero"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 8,
+  "fields": {
+    "paciente": 13,
+    "fechaConsulta": "2020-05-20",
+    "clinica": 3,
+    "consultorio": 6,
+    "hora": "1 pm",
+    "medico": "Ana Martinez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 9,
+  "fields": {
+    "paciente": 3,
+    "fechaConsulta": "2019-10-08",
+    "clinica": 1,
+    "consultorio": 1,
+    "hora": "10 am",
+    "medico": "Juan Lopez"
+  }
+},
+{
+  "model": "SistemaGerencial.consulta",
+  "pk": 10,
+  "fields": {
+    "paciente": 11,
+    "fechaConsulta": "2019-07-02",
+    "clinica": 2,
+    "consultorio": 4,
+    "hora": "6:30 am",
+    "medico": "Luz de Maria"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 1,
+  "fields": {
+    "paciente": 1,
+    "consultorio": 5,
+    "fechaAplic": "2022-05-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 2,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 2,
+    "fechaAplic": "2021-02-20",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 3,
+  "fields": {
+    "paciente": 15,
+    "consultorio": 3,
+    "fechaAplic": "2021-12-02",
+    "nombreVac": "Polivalente"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 4,
+  "fields": {
+    "paciente": 11,
+    "consultorio": 4,
+    "fechaAplic": "2022-05-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 5,
+  "fields": {
+    "paciente": 8,
+    "consultorio": 2,
+    "fechaAplic": "2021-02-20",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 6,
+  "fields": {
+    "paciente": 11,
+    "consultorio": 4,
+    "fechaAplic": "2019-05-02",
+    "nombreVac": "Polivalente"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 7,
+  "fields": {
+    "paciente": 13,
+    "consultorio": 6,
+    "fechaAplic": "2022-10-07",
+    "nombreVac": "Covid-Can"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 8,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 1,
+    "fechaAplic": "2019-07-22",
+    "nombreVac": "Covid-Can"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 9,
+  "fields": {
+    "paciente": 1,
+    "consultorio": 1,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 10,
+  "fields": {
+    "paciente": 6,
+    "consultorio": 1,
+    "fechaAplic": "2019-01-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 11,
+  "fields": {
+    "paciente": 10,
+    "consultorio": 1,
+    "fechaAplic": "2021-12-02",
+    "nombreVac": "Covid-Can"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 12,
+  "fields": {
+    "paciente": 18,
+    "consultorio": 1,
+    "fechaAplic": "2021-02-02",
+    "nombreVac": "Covid-Can"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 13,
+  "fields": {
+    "paciente": 1,
+    "consultorio": 1,
+    "fechaAplic": "2022-01-12",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 14,
+  "fields": {
+    "paciente": 15,
+    "consultorio": 1,
+    "fechaAplic": "2020-05-14",
+    "nombreVac": "VitaMiau"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 15,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 2,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 16,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 2,
+    "fechaAplic": "2019-01-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 17,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 2,
+    "fechaAplic": "2021-07-29",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 18,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 2,
+    "fechaAplic": "2020-09-12",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 19,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 2,
+    "fechaAplic": "2019-02-21",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 20,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 2,
+    "fechaAplic": "2021-06-22",
+    "nombreVac": "Parvovirus"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 21,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 3,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 22,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 3,
+    "fechaAplic": "2019-08-02",
+    "nombreVac": "Polivalente"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 23,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 3,
+    "fechaAplic": "2021-07-29",
+    "nombreVac": "Polivalente"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 24,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 3,
+    "fechaAplic": "2020-09-12",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 25,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 3,
+    "fechaAplic": "2019-02-21",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 26,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 3,
+    "fechaAplic": "2020-08-20",
+    "nombreVac": "Polivalente"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 27,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 3,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "VitaMiau"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 28,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 3,
+    "fechaAplic": "2019-01-02",
+    "nombreVac": "Moqillo"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 29,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 3,
+    "fechaAplic": "2019-09-29",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 30,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 3,
+    "fechaAplic": "2020-10-12",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 31,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 3,
+    "fechaAplic": "2019-02-21",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 32,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 3,
+    "fechaAplic": "2020-06-02",
+    "nombreVac": "Distemper"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 33,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 4,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 34,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 4,
+    "fechaAplic": "2019-11-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 35,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 4,
+    "fechaAplic": "2021-10-29",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 36,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 4,
+    "fechaAplic": "2021-09-12",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 37,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 4,
+    "fechaAplic": "2019-11-21",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 38,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 4,
+    "fechaAplic": "2022-01-22",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 39,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 5,
+    "fechaAplic": "2020-10-02",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 40,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 5,
+    "fechaAplic": "2019-01-02",
+    "nombreVac": "Rabiton"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 41,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 5,
+    "fechaAplic": "2021-07-29",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 42,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 5,
+    "fechaAplic": "2020-09-12",
+    "nombreVac": "AVC-2"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 43,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 5,
+    "fechaAplic": "2019-02-21",
+    "nombreVac": "Moquillo"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 44,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 5,
+    "fechaAplic": "2021-06-22",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 45,
+  "fields": {
+    "paciente": 4,
+    "consultorio": 6,
+    "fechaAplic": "2021-12-02",
+    "nombreVac": "Parvovirus"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 46,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 6,
+    "fechaAplic": "2019-01-02",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 47,
+  "fields": {
+    "paciente": 9,
+    "consultorio": 6,
+    "fechaAplic": "2019-10-29",
+    "nombreVac": "Covid-Can"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 48,
+  "fields": {
+    "paciente": 3,
+    "consultorio": 6,
+    "fechaAplic": "2021-05-12",
+    "nombreVac": "VitaCan"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 49,
+  "fields": {
+    "paciente": 2,
+    "consultorio": 6,
+    "fechaAplic": "2019-01-21",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.vacuna",
+  "pk": 50,
+  "fields": {
+    "paciente": 7,
+    "consultorio": 6,
+    "fechaAplic": "2019-11-22",
+    "nombreVac": "Leptospirosis"
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 1,
+  "fields": {
+    "paciente": 1,
+    "clinica": 3,
+    "consultorio": 5
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 2,
+  "fields": {
+    "paciente": 2,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 3,
+  "fields": {
+    "paciente": 3,
+    "clinica": 1,
+    "consultorio": 2
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 4,
+  "fields": {
+    "paciente": 4,
+    "clinica": 1,
+    "consultorio": 2
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 5,
+  "fields": {
+    "paciente": 5,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 6,
+  "fields": {
+    "paciente": 6,
+    "clinica": 3,
+    "consultorio": 5
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 7,
+  "fields": {
+    "paciente": 7,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 8,
+  "fields": {
+    "paciente": 8,
+    "clinica": 1,
+    "consultorio": 2
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 9,
+  "fields": {
+    "paciente": 9,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 10,
+  "fields": {
+    "paciente": 10,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 11,
+  "fields": {
+    "paciente": 11,
+    "clinica": 2,
+    "consultorio": 4
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 12,
+  "fields": {
+    "paciente": 12,
+    "clinica": 2,
+    "consultorio": 3
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 13,
+  "fields": {
+    "paciente": 13,
+    "clinica": 3,
+    "consultorio": 6
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 14,
+  "fields": {
+    "paciente": 14,
+    "clinica": 2,
+    "consultorio": 3
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 15,
+  "fields": {
+    "paciente": 15,
+    "clinica": 2,
+    "consultorio": 4
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 16,
+  "fields": {
+    "paciente": 16,
+    "clinica": 3,
+    "consultorio": 5
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 17,
+  "fields": {
+    "paciente": 17,
+    "clinica": 3,
+    "consultorio": 6
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 18,
+  "fields": {
+    "paciente": 18,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 19,
+  "fields": {
+    "paciente": 19,
+    "clinica": 2,
+    "consultorio": 3
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 20,
+  "fields": {
+    "paciente": 20,
+    "clinica": 2,
+    "consultorio": 3
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 21,
+  "fields": {
+    "paciente": 21,
+    "clinica": 1,
+    "consultorio": 1
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 22,
+  "fields": {
+    "paciente": 22,
+    "clinica": 2,
+    "consultorio": 4
+  }
+},
+{
+  "model": "SistemaGerencial.expediente",
+  "pk": 23,
+  "fields": {
+    "paciente": 23,
+    "clinica": 3,
+    "consultorio": 6
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 1,
+  "fields": {
+    "usuario": 1,
+    "accion": "llorar",
+    "fecha": "2021-06-03T16:33:28.981Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 2,
+  "fields": {
+    "usuario": 1,
+    "accion": "Vacunas más aplicadas",
+    "fecha": "2022-06-03T16:55:06.823Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 3,
+  "fields": {
+    "usuario": 1,
+    "accion": "Vacunas más aplicadas por rango de fecha",
+    "fecha": "2022-06-03T16:55:29.761Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 4,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T17:23:51.435Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 5,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T17:39:29.876Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 6,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:32:53.357Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 7,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:42:18.407Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 8,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:42:28.906Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 9,
+  "fields": {
+    "usuario": 1,
+    "accion": "Modificación de usuario: Sirius",
+    "fecha": "2022-06-03T19:42:52.610Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 10,
+  "fields": {
+    "usuario": 1,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:42:52.790Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 11,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:51:51.550Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 12,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-03T19:58:03.548Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 13,
+  "fields": {
+    "usuario": 4,
+    "accion": "Pacientes por Consultorio",
+    "fecha": "2022-06-03T19:59:18.171Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 14,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-06T22:41:23.355Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 15,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-06T22:43:23.666Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 16,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultorio",
+    "fecha": "2022-06-07T00:24:01.671Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 17,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultorio",
+    "fecha": "2022-06-07T01:00:46.606Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 18,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultorio",
+    "fecha": "2022-06-07T01:01:40.221Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 19,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultorio",
+    "fecha": "2022-06-07T01:03:07.668Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 20,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultrio por rango de fecha",
+    "fecha": "2022-06-07T01:03:37.489Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 21,
+  "fields": {
+    "usuario": 4,
+    "accion": "Vacunas por Consultorio",
+    "fecha": "2022-06-07T01:04:56.226Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 22,
+  "fields": {
+    "usuario": 4,
+    "accion": "Vacunas más aplicadas",
+    "fecha": "2022-06-07T01:06:10.947Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 23,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T01:18:30.117Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 24,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T01:18:48.069Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 25,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Especie por Consultorio",
+    "fecha": "2022-06-07T01:23:12.508Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 26,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T15:27:33.395Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 27,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte Pacientes-Consultorio",
+    "fecha": "2022-06-07T15:27:49.194Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 28,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T15:28:07.692Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 29,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte Pacientes-Consultorio",
+    "fecha": "2022-06-07T15:28:09.768Z"
+  }
+}
+]
