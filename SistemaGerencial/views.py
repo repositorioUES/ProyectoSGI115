@@ -528,7 +528,13 @@ def listado_bitacora(request):
                 context = {'bitacoras': bitacoras}
                 print(fec1, fec2)
 
-    return render(request, 'listado_bitacora.html', context)
+
+
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+        return render(request, 'listado_bitacora.html', context)
+    else:
+        return render(request, 'usuario/401.html')
+
 
 class reporteUsuarios(LoginRequiredMixin,View):
 

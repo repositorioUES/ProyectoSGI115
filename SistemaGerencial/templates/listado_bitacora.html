@@ -28,11 +28,11 @@
                         </select>
                     </td>-->
                   
-                    <td width="250" align="right">
-                        Desde:<input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
+                    <td width="195" align="right">
+                        Desde <input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha1" value="{{ request.GET.buscarFecha1 }}">
                     </td>
-                    <td width="250" align="right">
-                        Hasta:<input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
+                    <td width="200" align="right">
+                        Hasta <input type="date"  placeholder="aaaa-mm-dd" name="buscarFecha2" value="{{ request.GET.buscarFecha2 }}">
                     </td>
                     <td width="100" align="right">
                         <button type="submit" class="btn btn-info" ><B>Buscar</B></button>
@@ -49,7 +49,20 @@
             <br>
         </div>
     </form>
+
 </div>
+
+        {% if msj %}
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body"><h5>{{msj}}</h5></div>
+                <!--<div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>-->
+            </div>
+        </div>
+    {% endif %}
 
             <!--<div class="card-header">
                 <i class="fas fa-table me-1"></i>{{ c.nombreCons}}
@@ -75,19 +88,10 @@
                 {% endfor %}
             </tbody>
             </table>
-       
+       </div>
 
-    {% if msj %}
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-warning text-white mb-4">
-                <div class="card-body"><h5>{{msj}}</h5></div>
-                <!--<div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                </div>-->
-            </div>
 
-    {% endif %}
 
-</div>
+
+
 {% endblock content%} 
