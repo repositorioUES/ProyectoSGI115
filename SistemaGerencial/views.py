@@ -88,8 +88,8 @@ def registrarUsuario(request):
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-
-            bitacora(request.user, "Registro de usuario: " + formulario.username)
+            username = formulario.cleaned_data['username']
+            bitacora(request.user, "Registro de usuario: " + username)
 
             messages.success(request, "Usuario registrado exitosamente")
             return redirect(to="listarUsuario")
@@ -528,7 +528,13 @@ def listado_bitacora(request):
                 context = {'bitacoras': bitacoras}
                 print(fec1, fec2)
 
-    return render(request, 'listado_bitacora.html', context)
+
+
+    if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
+        return render(request, 'listado_bitacora.html', context)
+    else:
+        return render(request, 'usuario/401.html')
+
 
 class reporteUsuarios(LoginRequiredMixin,View):
 
