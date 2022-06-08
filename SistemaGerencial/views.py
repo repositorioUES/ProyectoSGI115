@@ -140,7 +140,7 @@ def eliminarUsuario(request, id):
     usuario = get_object_or_404(User, id=id)
 
     if usuario:
-        bitacora(request.user, "Eliminación de usuario: " + usuario.username)
+        bitacora(request.user, "Eliminación de usuario: " + usuario.username + " (" + usuario.first_name + " "+ usuario.last_name +")")
 
     usuario.delete()
     messages.success(request, " Usuario eliminado correctamente")
