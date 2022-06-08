@@ -60,8 +60,8 @@
   "model": "SistemaGerencial.user",
   "pk": 4,
   "fields": {
-    "password": "pbkdf2_sha256$260000$ympo6pmM826dsWdi3Hbb2N$lNeHD3mO7K+wpXZsl9JZUeOpGUq10nHQTDptDOAfLG4=",
-    "last_login": "2022-06-06T21:54:49.872Z",
+    "password": "pbkdf2_sha256$260000$sHyq7NMpP10NyDv4th7E5v$5AmNnHsV1hjO0zZNiRtLvptAQ5872k7ZCuVMs5q5CH0=",
+    "last_login": "2022-06-08T03:32:59.079Z",
     "is_superuser": false,
     "username": "Sirius",
     "first_name": "Ruddy Alfredo",
@@ -1592,6 +1592,123 @@
     "usuario": 4,
     "accion": "Generó reporte Pacientes-Consultorio",
     "fecha": "2022-06-07T15:28:09.768Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 30,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó respaldo de la Base de Datos",
+    "fecha": "2022-06-07T15:29:35.341Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 31,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte de Bitacora",
+    "fecha": "2022-06-07T15:30:32.531Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 32,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T15:41:03.367Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 33,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver listado de usuarios",
+    "fecha": "2022-06-07T15:55:31.129Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 34,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte de Usuarios",
+    "fecha": "2022-06-07T16:01:48.674Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 35,
+  "fields": {
+    "usuario": 4,
+    "accion": "Ver Consultas por Consultorio",
+    "fecha": "2022-06-07T16:52:10.479Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 36,
+  "fields": {
+    "usuario": 4,
+    "accion": "Vacunas por Consultorio",
+    "fecha": "2022-06-07T16:58:10.678Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 37,
+  "fields": {
+    "usuario": 4,
+    "accion": "Vacunas por Consultorio",
+    "fecha": "2022-06-07T16:58:18.500Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 38,
+  "fields": {
+    "usuario": 4,
+    "accion": "Vacunas más aplicadas",
+    "fecha": "2022-06-07T16:59:08.410Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 39,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Consultorio",
+    "fecha": "2022-06-07T17:00:37.947Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 40,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte Pacientes-Consultorio",
+    "fecha": "2022-06-07T17:00:49.777Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 41,
+  "fields": {
+    "usuario": 4,
+    "accion": " Ver Pacientes por Especie por Consultorio",
+    "fecha": "2022-06-07T17:08:55.320Z"
+  }
+},
+{
+  "model": "SistemaGerencial.bitacora",
+  "pk": 42,
+  "fields": {
+    "usuario": 4,
+    "accion": "Generó reporte de Bitacora",
+    "fecha": "2022-06-08T03:59:22.780Z"
   }
 }
 ]

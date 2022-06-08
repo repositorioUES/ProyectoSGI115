@@ -61,7 +61,7 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()
 
-            bitacora(request.user, "Registro de usuario: " + formulario.username)
+            #bitacora(request.user, "Registro de usuario: " + formulario.username)
 
             user = authenticate(username=formulario.cleaned_data["username"],
                                 password=formulario.cleaned_data["password1"])
@@ -89,7 +89,7 @@ def registrarUsuario(request):
         if formulario.is_valid():
             formulario.save()
 
-            bitacora(request.user, "Registro de usuario: " + formulario.username)
+            bitacora(request.user, "Registro de usuario: " + formulario.cleaned_data['username'] + "(" + formulario.cleaned_data['first_name'] + " " + formulario.cleaned_data['last_name'] +")")
 
             messages.success(request, "Usuario registrado exitosamente")
             return redirect(to="listarUsuario")
@@ -106,8 +106,8 @@ def listarUsuario(request):
 
     if request.user is not None and request.user.is_superuser == 1 or request.user.rol == 'administrador':
 
-        if usuarios:
-            bitacora(request.user, "Ver listado de usuarios")
+        #if usuarios:
+            #bitacora(request.user, "Ver listado de usuarios")
 
         return render(request, 'usuario/listarUsuario.html', data)
     else:
@@ -127,7 +127,7 @@ def editarUsuario(request, id):
             formulario.save()
 
             if usuario:
-                bitacora(request.user, "Modificación de usuario: " + usuario.username)
+                bitacora(request.user, "Modificación de usuario: " + usuario.username + " (" + usuario.first_name + " "+ usuario.last_name +")")
 
             messages.success(request, " Usuario actualizado correctamente")
             return redirect(to="listarUsuario")
